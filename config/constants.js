@@ -1,7 +1,10 @@
 const { join } = require('path')
 
-const functionsDir = join(process.cwd(), 'functions')
+const FUNCTIONS_DIR = join(process.cwd(), 'functions')
+
+const SRC_DIR = join(process.cwd(), 'src')
 
 module.exports = {
-  functionsDir,
+  FUNCTIONS_DIR,
+  SRC_DIR,
 }
