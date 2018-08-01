@@ -1,6 +1,7 @@
 {
   "name": "@rulsky/fra2",
-  "version": "0.0.4",
+  "version": "0.0.5",
+  "private": true,
   "description": "",
   "bin": {
     "fra2": "./index.js"
@@ -15,7 +16,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
