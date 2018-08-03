@@ -1,6 +1,6 @@
 {
   "name": "@rulsky/fra2",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "description": "",
   "bin": {
@@ -11,8 +11,9 @@
     "npm": ">=5.2.0"
   },
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:wc": "jest --watch --coverage"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@babel/preset-react": "^7.0.0-beta.55",
     "chokidar": "^2.0.4",
     "commander": "^2.16.0",
+    "cross-spawn": "^6.0.5",
     "fs-extra": "^7.0.0"
   },
   "devDependencies": {
@@ -34,6 +36,9 @@
     "jest-cli": "^23.4.2"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "scripts/**"
+    ]
   }
 }
