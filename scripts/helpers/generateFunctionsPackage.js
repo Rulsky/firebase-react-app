@@ -1,10 +1,10 @@
 const { join, sep } = require('path')
 const { readJson, outputFile } = require('fs-extra')
 
-const { FUNCTIONS_DIR } = require('../../config/constants')
+const { error } = require('./logger')
 const deepenRelativePath = require('./deepenRelativePath')
+const { FUNCTIONS_DIR } = require('../../config/constants')
 
-const { error } = console
 const template = {
   name: 'functions',
   description: 'Cloud Functions for Firebase',
@@ -21,10 +21,6 @@ const template = {
 const rootPackageJson = join(process.cwd(), 'package.json')
 const functionsPackageJson = join(FUNCTIONS_DIR, 'package.json')
 const generateFunctionsPackage = () => readJson(rootPackageJson)
-  .then((json) => {
-    if (typeof json === 'object') return json
-    return JSON.parse(json)
-  })
   .then(({ dependencies }) => {
     const content = Object.assign({}, template, {
       dependencies: deepenRelativePath(dependencies),

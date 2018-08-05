@@ -1,5 +1,5 @@
 const { join } = require('path')
-const { destFilename } = require('../../../scripts/helpers')
+const destFilename = require('../../../scripts/helpers/destFilename')
 
 describe('destFilename', () => {
   describe('replaces directories with preservation of relative paths', () => {

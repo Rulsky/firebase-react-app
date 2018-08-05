@@ -3,13 +3,11 @@ const { join } = require('path')
 /* eslint-disable global-require */
 describe('genterateFunctionsPackage', () => {
   beforeEach(() => {
-    jest.resetAllMocks()
-    jest.resetModules()
     jest.mock('fs-extra')
   })
   it('copies dependencies from root "package.json"', () => {
     const givenFilename = join(process.cwd(), 'package.json')
-    const givenContent = JSON.stringify({
+    const givenContent = {
       name: 'fra-consumer',
       version: '1.2.0',
       description: '',
@@ -39,7 +37,7 @@ describe('genterateFunctionsPackage', () => {
         'react-dom': '^16.4.1',
         'some-other-cool-lib': '~2.40.12',
       },
-    }, null, 2)
+    }
 
     const expectedFilename = join(process.cwd(), 'functions', 'package.json')
     const expectedConent = JSON.stringify({
@@ -64,7 +62,7 @@ describe('genterateFunctionsPackage', () => {
     }, null, 2)
 
     require('fs-extra').__addToRegister(givenFilename, givenContent)
-    const { generateFunctionsPackage } = require('../../../scripts/helpers')
+    const generateFunctionsPackage = require('../../../scripts/helpers/generateFunctionsPackage')
 
     return generateFunctionsPackage().then(({ filename, content }) => {
       expect(filename).toEqual(expectedFilename)
@@ -75,7 +73,7 @@ describe('genterateFunctionsPackage', () => {
     const givenFilename = join(process.cwd(), 'package.json')
     console.error = jest.fn() // eslint-disable-line no-console
     require('fs-extra').__addToRegister(givenFilename, 'blabla')
-    const { generateFunctionsPackage } = require('../../../scripts/helpers')
+    const generateFunctionsPackage = require('../../../scripts/helpers/generateFunctionsPackage')
     return generateFunctionsPackage().catch((error) => {
       expect(error.message).toMatch(/error while generating'/)
       expect(console.error).toHaveBeenCalledTimes(1) // eslint-disable-line no-console
