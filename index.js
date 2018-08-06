@@ -6,12 +6,13 @@ const { version } = require('./package.json')
 
 commander
   .version(version, '-v, --version')
+  .option('-c --clean', 'fully delete functions dir')
 
 commander
   .command('start')
   .description('starts development')
-  .action(() => {
-    start()
+  .action((command) => {
+    start(command)
   })
 
 commander

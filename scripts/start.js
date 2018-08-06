@@ -1,10 +1,14 @@
 const {
   clearFunctionsDir,
-  watcher,
+  parseCommanderOptions,
   serveFirebase,
+  watcher,
 } = require('./helpers')
 
 
-module.exports = () => clearFunctionsDir()
-  .then(() => watcher())
-  .then(() => serveFirebase())
+module.exports = (cmd) => {
+  const options = parseCommanderOptions(cmd, 'clean')
+  return clearFunctionsDir(options)
+    .then(() => watcher())
+    .then(() => serveFirebase())
+}

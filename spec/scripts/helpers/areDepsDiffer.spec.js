@@ -201,4 +201,17 @@ describe('areDepsDiffer', () => {
       expect(areDepsDiffer()).toEqual(true)
     })
   })
+
+  describe('errors', () => {
+    it('when no functions dir', () => {
+      const areDepsDiffer = require('../../../scripts/helpers/areDepsDiffer')
+      expect(areDepsDiffer()).toEqual(true)
+    })
+
+    it('unexpected', () => {
+      jest.mock(join(process.cwd(), 'package.json'), () => ('surprise!'))
+      const areDepsDiffer = require('../../../scripts/helpers/areDepsDiffer')
+      expect(() => { areDepsDiffer() }).toThrow()
+    })
+  })
 })

@@ -3,6 +3,7 @@ const clearFunctionsDir = require('./clearFunctionsDir')
 const destFilename = require('./destFilename')
 const generateFunctionsPackage = require('./generateFunctionsPackage')
 const handleDeps = require('./handleDeps')
+const parseCommanderOptions = require('./parseCommanderOptions')
 const runNpmInstall = require('./runNpmInstall')
 const serveFirebase = require('./serveFirebase')
 const transform = require('./transform')
@@ -16,6 +17,7 @@ module.exports = {
   destFilename,
   generateFunctionsPackage,
   handleDeps,
+  parseCommanderOptions,
   runNpmInstall,
   serveFirebase,
   transform,
