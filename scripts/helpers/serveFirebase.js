@@ -1,5 +1,10 @@
-const { sync } = require('cross-spawn')
+const spawn = require('cross-spawn')
 
-const serveFirebase = () => sync('npx', ['firebase', 'serve'])
+const { info } = require('./logger')
+
+const serveFirebase = () => {
+  info('\nstarting firebase emulation\n')
+  return spawn('npx', ['firebase', 'serve'], { stdio: 'inherit' })
+}
 
 module.exports = serveFirebase

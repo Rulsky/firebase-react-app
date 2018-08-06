@@ -1,10 +1,10 @@
 const {
   clearFunctionsDir,
   watcher,
-  // serveFirebase,
+  serveFirebase,
 } = require('./helpers')
 
 
 module.exports = () => clearFunctionsDir()
   .then(() => watcher())
-  // .then(() => serveFirebase())
+  .then(() => serveFirebase())
