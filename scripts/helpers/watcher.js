@@ -9,11 +9,11 @@ const { SRC_DIR } = require('../../config/constants')
 
 const rootPackage = join(process.cwd(), 'package.json')
 const src = join(SRC_DIR, '**')
-const watched = [rootPackage, src]
+const watchList = [rootPackage, src]
 
-const handleFiles = (file) => {
+const handleFiles = (file, yarn) => {
   if (file === rootPackage) {
-    return handleDeps()
+    return handleDeps(yarn)
       .then((result) => {
         if (result) {
           log('Deps have been changed')
@@ -28,10 +28,10 @@ const handleFiles = (file) => {
     .catch(err => error(`error while transforming:\n${err}\n`))
 }
 
-const watchRootPackage = () => new Promise((resolve, reject) => {
-  watch(watched)
-    .on('change', file => handleFiles(file))
-    .on('add', file => handleFiles(file))
+const watchRootPackage = ({ yarn }) => new Promise((resolve, reject) => {
+  watch(watchList)
+    .on('change', file => handleFiles(file, yarn))
+    .on('add', file => handleFiles(file, yarn))
     .on('unlink', (file) => {
       if (file !== rootPackage) {
         unlink(file)

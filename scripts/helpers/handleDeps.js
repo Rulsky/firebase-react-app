@@ -2,10 +2,10 @@ const areDepsDiffer = require('./areDepsDiffer')
 const generateFunctionsPackage = require('./generateFunctionsPackage')
 const runNpmInstall = require('./runNpmInstall')
 
-const handleDeps = () => {
+const handleDeps = (yarn) => {
   if (areDepsDiffer()) {
     return generateFunctionsPackage()
-      .then(() => runNpmInstall())
+      .then(() => runNpmInstall(yarn))
   }
   return Promise.resolve(null)
 }

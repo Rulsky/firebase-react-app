@@ -7,8 +7,8 @@ const {
 
 
 module.exports = (cmd) => {
-  const options = parseCommanderOptions(cmd, 'clean')
+  const options = parseCommanderOptions(cmd, 'clean', 'yarn')
   return clearFunctionsDir(options)
-    .then(() => watcher())
+    .then(() => watcher(options))
     .then(() => serveFirebase())
 }

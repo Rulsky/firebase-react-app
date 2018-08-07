@@ -7,6 +7,7 @@ const { version } = require('./package.json')
 commander
   .version(version, '-v, --version')
   .option('-c --clean', 'fully delete functions dir')
+  .option('--yarn', 'use yarn to install dependencies')
 
 commander
   .command('start')
