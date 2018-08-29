@@ -1,6 +1,6 @@
 {
   "name": "@rulsky/fra2",
-  "version": "0.2.0",
+  "version": "0.6.0",
   "private": true,
   "description": "",
   "bin": {
@@ -13,28 +13,44 @@
   "scripts": {
     "test": "jest --coverage",
     "test:w": "jest --watch",
-    "test:wc": "jest --watch --coverage"
+    "test:wc": "jest --watch --coverage",
+    "cleandeps": "rm -rf package-lock.json yarn.lock node_modules/ && npm i"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.55",
-    "@babel/preset-env": "^7.0.0-beta.55",
-    "@babel/preset-react": "^7.0.0-beta.55",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0",
+    "@babel/plugin-transform-classes": "7.0.0",
+    "@babel/plugin-transform-destructuring": "7.0.0",
+    "@babel/plugin-transform-react-constant-elements": "7.0.0",
+    "@babel/plugin-transform-react-display-name": "7.0.0",
+    "@babel/plugin-transform-regenerator": "7.0.0",
+    "@babel/plugin-transform-runtime": "7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "babel-plugin-source-map-support": "^2.0.1",
     "chalk": "^2.4.1",
     "chokidar": "^2.0.4",
-    "commander": "^2.16.0",
+    "commander": "^2.17.1",
     "cross-spawn": "^6.0.5",
-    "fs-extra": "^7.0.0"
+    "fs-extra": "^7.0.0",
+    "react-hot-loader": "^4.3.5",
+    "source-map-support": "^0.5.9",
+    "webpack": "^4.17.1"
   },
   "devDependencies": {
-    "eslint": "^5.2.0",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
-    "jest": "^23.4.2",
-    "jest-cli": "^23.4.2"
+    "jest": "^23.5.0",
+    "jest-cli": "^23.5.0"
   },
   "jest": {
     "collectCoverageFrom": [

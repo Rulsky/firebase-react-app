@@ -28,27 +28,25 @@ const handleFiles = (file, yarn) => {
     .catch(err => error(`error while transforming:\n${err}\n`))
 }
 
-const watchRootPackage = ({ yarn }) => new Promise((resolve, reject) => {
-  watch(watchList)
-    .on('change', file => handleFiles(file, yarn))
-    .on('add', file => handleFiles(file, yarn))
-    .on('unlink', (file) => {
-      if (file !== rootPackage) {
-        unlink(file)
-          .then(() => log(`File ${file} has been deleted`))
-          .catch(err => error(`error while deleting:\n${err}\n`))
-      }
-    })
-    .on('error', (err) => {
-      const msg = `Watcher error: ${err}`
-      error(msg)
-      reject(msg)
-    })
-    .on('ready', () => {
-      const msg = 'First run of transpilation is complete.\nListening for changes...'
-      log(msg)
-      resolve(msg)
-    })
-})
+const watcher = ({ yarn }) => new Promise((resolve, reject) => watch(watchList)
+  .on('change', file => handleFiles(file, yarn))
+  .on('add', file => handleFiles(file, yarn))
+  .on('unlink', (file) => {
+    if (file !== rootPackage) {
+      unlink(file)
+        .then(() => log(`File ${file} has been deleted`))
+        .catch(err => error(`error while deleting:\n${err}\n`))
+    }
+  })
+  .on('error', (err) => {
+    const msg = `Watcher error: ${err}`
+    error(msg)
+    reject(msg)
+  })
+  .on('ready', () => {
+    const msg = 'First run of transpilation is complete.\nListening for changes...'
+    log(msg)
+    resolve(msg)
+  }))
 
-module.exports = watchRootPackage
+module.exports = watcher
