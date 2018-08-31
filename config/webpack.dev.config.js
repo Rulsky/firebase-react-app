@@ -7,8 +7,10 @@ module.exports = {
   mode: 'development',
   entry: [
     CLIENT_ENTRY,
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
   ],
+  resolve: {
+    extensions: ['.wasm', '.mjs', '.js', '.json', 'jsx'],
+  },
   output: {
     filename: 'bundle.js',
     publicPath: '/',
@@ -22,6 +24,9 @@ module.exports = {
         options: babelConfig,
       },
     }],
+  },
+  devServer: {
+    hot: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

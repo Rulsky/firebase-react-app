@@ -1,11 +1,19 @@
 {
-  "name": "@rulsky/fra2",
-  "version": "0.6.0",
-  "private": true,
-  "description": "",
-  "bin": {
-    "fra2": "./index.js"
+  "name": "@rulsky/firebase-react-app",
+  "version": "0.8.0",
+  "description": "a tool to convert es6 code into compatible code with firebase cloud functions",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Rulsky/firebase-react-app.git"
   },
+  "bin": {
+    "fra": "./index.js"
+  },
+  "files": [
+    "scripts",
+    "config",
+    "index.js"
+  ],
   "engines": {
     "node": ">=6.14.0",
     "npm": ">=5.2.0"
@@ -17,7 +25,7 @@
     "cleandeps": "rm -rf package-lock.json yarn.lock node_modules/ && npm i"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ruslan Zaytsev <ruslan.zaytsev@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.0.0",
@@ -39,10 +47,12 @@
     "chokidar": "^2.0.4",
     "commander": "^2.17.1",
     "cross-spawn": "^6.0.5",
+    "express": "^4.16.3",
     "fs-extra": "^7.0.0",
     "react-hot-loader": "^4.3.5",
     "source-map-support": "^0.5.9",
-    "webpack": "^4.17.1"
+    "webpack": "^4.17.1",
+    "webpack-dev-server": "^3.1.7"
   },
   "devDependencies": {
     "eslint": "^5.4.0",

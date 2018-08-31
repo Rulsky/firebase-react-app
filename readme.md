@@ -1,3 +1,7 @@
+# WIP tool to make DX of react apps easier for firebase cloud functions users.
+
+At the moment only transpiles es6 code for cloud functions - no dev server.
+
 # options
  -c, --clean - completly remove your `functions` dir and generate everything anew icluding `package-lock.json` and `node_modules` inside of it.
  --yarn - use yarn instead of npm to install deps

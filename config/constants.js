@@ -8,7 +8,7 @@ const HOSTING_DIR = join(process.cwd(), HOSTING_DIR_NAME)
 
 const SRC_DIR = join(process.cwd(), 'src')
 
-const CLIENT_ENTRY = join(SRC_DIR, '..', 'client', 'index.js')
+const CLIENT_ENTRY = join(SRC_DIR, 'client', 'index.jsx')
 
 module.exports = {
   CLIENT_ENTRY,

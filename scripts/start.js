@@ -5,7 +5,6 @@ const {
   watcher,
 } = require('./helpers')
 
-
 module.exports = (cmd) => {
   process.env.ENV = 'development'
   process.env.BABEL_ENV = 'development'
