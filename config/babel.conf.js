@@ -13,6 +13,10 @@ module.exports = {
   ],
   plugins: [
     // 'react-hot-loader/babel',
+    ['babel-plugin-styled-components', {
+      ssr: true,
+      displayName: process.env.BABEL_ENV === 'development',
+    }],
     'babel-plugin-source-map-support',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-object-rest-spread',
