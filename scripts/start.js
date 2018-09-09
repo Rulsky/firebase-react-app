@@ -3,7 +3,7 @@ const {
   parseCommanderOptions,
   serveFirebase,
   watcher,
-} = require('./helpers')
+} = require('../helpers')
 
 module.exports = (cmd) => {
   process.env.ENV = 'development'

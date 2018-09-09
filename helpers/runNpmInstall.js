@@ -1,5 +1,5 @@
 const { sync } = require('cross-spawn')
-const { FUNCTIONS_DIR_NAME } = require('../../config/constants')
+const { FUNCTIONS_DIR_NAME } = require('../config/constants')
 
 const runNpmInstall = (yarn) => {
   const manager = yarn ? ['yarn'] : ['npm', 'i']

@@ -1,4 +1,4 @@
-const parseCommanderOptions = require('../../../scripts/helpers/parseCommanderOptions')
+const parseCommanderOptions = require('../../helpers/parseCommanderOptions')
 
 describe('parseCommanderOptions', () => {
   describe('on command', () => {

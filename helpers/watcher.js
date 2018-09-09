@@ -5,7 +5,7 @@ const { log, error } = require('./logger')
 const transform = require('./transform')
 const unlink = require('./unlink')
 const handleDeps = require('./handleDeps')
-const { SRC_DIR } = require('../../config/constants')
+const { SRC_DIR } = require('../config/constants')
 
 const rootPackage = join(process.cwd(), 'package.json')
 const src = join(SRC_DIR, '**')

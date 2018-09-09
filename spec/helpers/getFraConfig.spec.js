@@ -1,5 +1,5 @@
 const { join } = require('path')
-const getFraConfig = require('../../../scripts/helpers/getFraConfig')
+const getFraConfig = require('../../helpers/getFraConfig')
 
 const rootPackagePath = join(process.cwd(), 'package.json')
 

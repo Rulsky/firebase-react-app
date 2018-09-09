@@ -1,6 +1,6 @@
 const { join } = require('path')
 
-const { FUNCTIONS_DIR_NAME } = require('../../config/constants')
+const { FUNCTIONS_DIR_NAME } = require('../config/constants')
 
 /* eslint-disable import/no-dynamic-require, global-require */
 const filterFSDeps = obj => Object.keys(obj).filter((k) => {

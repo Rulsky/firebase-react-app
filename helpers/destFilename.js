@@ -1,6 +1,6 @@
 const { parse, join } = require('path')
 
-const { FUNCTIONS_DIR, SRC_DIR } = require('../../config/constants')
+const { FUNCTIONS_DIR, SRC_DIR } = require('../config/constants')
 
 const destFilename = (filename) => {
   const { dir, name } = parse(filename)

@@ -3,7 +3,7 @@ const { readJson, outputFile } = require('fs-extra')
 
 const { error } = require('./logger')
 const deepenRelativePath = require('./deepenRelativePath')
-const { FUNCTIONS_DIR } = require('../../config/constants')
+const { FUNCTIONS_DIR } = require('../config/constants')
 
 const template = {
   name: 'functions',

@@ -1,4 +1,4 @@
-const deepenRelativePath = require('../../../scripts/helpers/deepenRelativePath')
+const deepenRelativePath = require('../../helpers/deepenRelativePath')
 
 describe('deepenRelativePath', () => {
   it('return same object if no package with local path were inside', () => {

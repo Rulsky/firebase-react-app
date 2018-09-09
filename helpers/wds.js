@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const WDS = require('webpack-dev-server')
 
-const config = require('../../config/webpack.dev.config')
+const config = require('../config/webpack.dev.config')
 
 const startWds = () => {
   const compiler = webpack(config)

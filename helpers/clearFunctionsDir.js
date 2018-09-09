@@ -2,7 +2,7 @@ const { join } = require('path')
 const { remove, readdir } = require('fs-extra')
 
 const { error } = require('./logger')
-const { FUNCTIONS_DIR } = require('../../config/constants')
+const { FUNCTIONS_DIR } = require('../config/constants')
 
 
 const clearFunctionsDir = ({ clean }) => {
