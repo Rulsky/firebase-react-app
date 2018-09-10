@@ -2,8 +2,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { HotModuleReplacementPlugin } = require('webpack')
 const { join } = require('path')
+
 const { FBS_CONF } = require('./constants')
 const getFraConfig = require('../helpers/getFraConfig')
+const babelConfig = require('./babel.conf.wds')
 
 const template = `
 <!DOCTYPE html>
@@ -11,7 +13,7 @@ const template = `
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>t9 keyboard</title>
+  <title>WDS</title>
 </head>
 <body>
   <div id="root"></div>
@@ -39,7 +41,13 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader', options: babelConfig,
+        },
+      },
     ],
   },
   plugins: [

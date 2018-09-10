@@ -1,6 +1,6 @@
 {
   "name": "@rulsky/firebase-react-app",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "a tool to convert es6 code into compatible code with firebase cloud functions",
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
     "test": "jest --coverage",
     "test:w": "jest --watch",
     "test:wc": "jest --watch --coverage",
-    "cleandeps": "rm -rf package-lock.json yarn.lock node_modules/ && npm i"
+    "cleandeps": "rm -rf package-lock.json yarn.lock node_modules/ && npm i && npm link"
   },
   "keywords": [],
   "author": "Ruslan Zaytsev <ruslan.zaytsev@gmail.com>",
