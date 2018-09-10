@@ -4,6 +4,7 @@ const {
   serveFirebase,
   watcher,
 } = require('../helpers')
+const startWds = require('../helpers/startWds')
 
 module.exports = (cmd) => {
   process.env.ENV = 'development'
@@ -12,4 +13,5 @@ module.exports = (cmd) => {
   return clearFunctionsDir(options)
     .then(() => watcher(options))
     .then(() => serveFirebase())
+    .then(() => startWds())
 }

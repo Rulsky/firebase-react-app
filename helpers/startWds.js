@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const WDS = require('webpack-dev-server')
 
+const { info } = require('./logger')
 const config = require('../config/webpack.dev.config')
 
 const startWds = () => {
@@ -8,8 +9,9 @@ const startWds = () => {
   const options = Object.assign({},
     config.devServer)
   const server = new WDS(compiler, options)
-  console.log('======= starting wds =======')
-  server.listen()
+
+  info('\nstarting starting webpack-dev-server\n')
+  server.listen(3000)
 }
 
 module.exports = startWds

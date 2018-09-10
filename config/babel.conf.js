@@ -12,7 +12,7 @@ module.exports = {
     }],
   ],
   plugins: [
-    // 'react-hot-loader/babel',
+    'react-hot-loader/babel',
     ['babel-plugin-styled-components', {
       ssr: true,
       displayName: process.env.BABEL_ENV === 'development',

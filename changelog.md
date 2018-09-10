@@ -1,3 +1,8 @@
+## [0.10.0] - 10 Sep 2018
+### Added
+  - configuring options. [Read more here](readme.md#Configuring)
+  - webpack-dev-server for local development
+
 ## [0.9.0] - 01 Sep 2018
 ### Added
  - babel-plugin-styled-components with SSR turned on
