@@ -7,10 +7,6 @@ module.exports = {
     }],
   ],
   plugins: [
-    ['babel-plugin-styled-components', {
-      ssr: true,
-      displayName: process.env.BABEL_ENV === 'development',
-    }],
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-syntax-dynamic-import',

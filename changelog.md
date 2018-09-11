@@ -1,4 +1,8 @@
 ## [0.10.1] - 11 Sep 2018
+### Improved
+  - proper options for babel-plugin-styled-components for targeted env
+  
+## [0.10.1] - 11 Sep 2018
 ### Fixed
   - transformation now applies correct babel config
   

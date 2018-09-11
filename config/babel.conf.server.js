@@ -10,6 +10,10 @@ module.exports = Object.assign({}, basicConfig, {
     ...basicConfig.presets,
   ],
   plugins: [
+    ['babel-plugin-styled-components', {
+      ssr: true,
+      displayName: process.env.BABEL_ENV === 'development',
+    }],
     ...basicConfig.plugins,
     'babel-plugin-source-map-support'],
 })
