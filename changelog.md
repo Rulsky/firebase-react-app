@@ -1,4 +1,8 @@
 ## [0.10.1] - 11 Sep 2018
+### Fixed
+  - transformation now applies correct babel config
+  
+## [0.10.1] - 11 Sep 2018
 ### Changed
   - separate babel configs for client and webpack
 ### Fixed
