@@ -1,4 +1,8 @@
 ## [0.12.8] - 20 Sep 2018
+### Fixed
+  - fix typos in configs
+
+## [0.12.8] - 20 Sep 2018
 ### Added
   - dev server with proxy to functions
 ### Improved

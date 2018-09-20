@@ -2,7 +2,7 @@
 const { join } = require('path')
 
 const { FBS_CONF } = require('./constants')
-const babelConfig = require('./babel.conf.webpackProd')
+const babelConfig = require('./babel.conf.webpackProd.js')
 
 module.exports = {
   mode: 'production',
