@@ -9,7 +9,7 @@ module.exports = Object.assign({}, basicConfig, {
   ],
   plugins: [
     ['babel-plugin-styled-components', {
-      displayName: true,
+      displayName: process.env.BABEL_ENV === 'development',
     }],
     ...basicConfig.plugins,
     'react-hot-loader/babel'],

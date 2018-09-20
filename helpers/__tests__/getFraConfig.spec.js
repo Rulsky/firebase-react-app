@@ -1,5 +1,5 @@
 const { join } = require('path')
-const getFraConfig = require('../../helpers/getFraConfig')
+const getFraConfig = require('../getFraConfig')
 
 const rootPackagePath = join(process.cwd(), 'package.json')
 
@@ -9,12 +9,12 @@ describe('getFraConfig', () => {
     jest.resetModules()
   })
 
-  it('returns null if neither ".frarc" and no "fra" field in package.json', () => {
+  it('returns empty object if neither ".frarc" and no "fra" field in package.json', () => {
     jest.mock(rootPackagePath, () => ({
       name: 'test-stub',
       version: '2.3.8',
     }), { virtual: true })
-    expect(getFraConfig()).toEqual(null)
+    expect(getFraConfig()).toEqual({})
   })
 
   it('returns config out of "fra" property in package.json', () => {

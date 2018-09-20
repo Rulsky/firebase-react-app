@@ -63,7 +63,7 @@ describe('genterateFunctionsPackage', () => {
     }, null, 2)
 
     require('fs-extra').__addToRegister(givenFilename, givenContent)
-    const generateFunctionsPackage = require('../../helpers/generateFunctionsPackage')
+    const generateFunctionsPackage = require('../generateFunctionsPackage')
 
     return generateFunctionsPackage().then(({ filename, content }) => {
       expect(filename).toEqual(expectedFilename)
@@ -74,7 +74,7 @@ describe('genterateFunctionsPackage', () => {
     const givenFilename = join(process.cwd(), 'package.json')
     console.error = jest.fn() // eslint-disable-line no-console
     require('fs-extra').__addToRegister(givenFilename, 'blabla')
-    const generateFunctionsPackage = require('../../helpers/generateFunctionsPackage')
+    const generateFunctionsPackage = require('../generateFunctionsPackage')
     return generateFunctionsPackage().catch((error) => {
       expect(error.message).toMatch(/error while generating'/)
       expect(console.error).toHaveBeenCalledTimes(1) // eslint-disable-line no-console

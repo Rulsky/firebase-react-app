@@ -15,5 +15,5 @@ module.exports = () => {
   }
   if (packageConfig) return packageConfig
   if (rc) return rc
-  return null
+  return {}
 }

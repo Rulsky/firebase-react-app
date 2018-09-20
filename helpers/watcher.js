@@ -10,6 +10,15 @@ const { SRC_DIR } = require('../config/constants')
 const rootPackage = join(process.cwd(), 'package.json')
 const src = join(SRC_DIR, '**')
 const watchList = [rootPackage, src]
+const ignored = [
+  '**/__spec__/**',
+  '**/__specs__/**',
+  '**/__test__/**',
+  '**/__tests__/**',
+  '**/__mocks__/**',
+  '*.test.js',
+  '*.spec.js',
+]
 
 const handleFiles = (file, yarn) => {
   if (file === rootPackage) {
@@ -28,7 +37,7 @@ const handleFiles = (file, yarn) => {
     .catch(err => error(`error while transforming:\n${err}\n`))
 }
 
-const watcher = ({ yarn }) => new Promise((resolve, reject) => watch(watchList)
+const watcher = ({ yarn }) => new Promise((resolve, reject) => watch(watchList, { ignored })
   .on('change', file => handleFiles(file, yarn))
   .on('add', file => handleFiles(file, yarn))
   .on('unlink', (file) => {

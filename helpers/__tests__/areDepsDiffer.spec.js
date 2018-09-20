@@ -24,7 +24,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(false)
     })
 
@@ -47,7 +47,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(false)
     })
 
@@ -67,7 +67,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(true)
     })
   })
@@ -89,7 +89,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(true)
     })
 
@@ -109,7 +109,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(true)
     })
   })
@@ -132,7 +132,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(false)
     })
 
@@ -153,7 +153,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(true)
     })
   })
@@ -177,7 +177,7 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(false)
     })
 
@@ -198,20 +198,20 @@ describe('areDepsDiffer', () => {
       }),
       { virtual: true })
 
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(true)
     })
   })
 
   describe('errors', () => {
     it('when no functions dir', () => {
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(areDepsDiffer()).toEqual(true)
     })
 
     it('unexpected', () => {
       jest.mock(join(process.cwd(), 'package.json'), () => ('surprise!'))
-      const areDepsDiffer = require('../../helpers/areDepsDiffer')
+      const areDepsDiffer = require('../areDepsDiffer')
       expect(() => { areDepsDiffer() }).toThrow()
     })
   })

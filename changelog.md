@@ -1,3 +1,15 @@
+## [0.12.8] - 20 Sep 2018
+### Added
+  - dev server with proxy to functions
+### Improved
+  - better cofig for styled-components
+### Fixed
+  - testing files are ignored
+
+## [0.10.1] - 11 Sep 2018
+### Improved
+  - proper options for babel-plugin-styled-components for targeted env
+
 ## [0.10.1] - 11 Sep 2018
 ### Improved
   - proper options for babel-plugin-styled-components for targeted env

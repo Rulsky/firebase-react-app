@@ -4,7 +4,6 @@ const { HotModuleReplacementPlugin } = require('webpack')
 const { join } = require('path')
 
 const { FBS_CONF } = require('./constants')
-const getFraConfig = require('../helpers/getFraConfig')
 const babelConfig = require('./babel.conf.wds')
 
 const template = `
@@ -19,25 +18,17 @@ const template = `
   <div id="root"></div>
 </html>
 `
-const fraConfig = getFraConfig()
-let proxy = {
-  '/api': 'http://localhost:5000',
-}
-if (fraConfig && fraConfig.proxy) {
-  proxy = fraConfig.proxy // eslint-disable-line prefer-destructuring
-}
+
 module.exports = {
   mode: 'development',
-  entry: './src/client/index.js',
+  entry: [
+    './src/client/index.js',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
+  ],
   output: {
     filename: 'bundle.js',
     path: join(process.cwd(), FBS_CONF.hosting.public),
-  },
-  devServer: {
-    hot: true,
-    port: 3000,
-    noInfo: true,
-    proxy,
+    publicPath: '/', // TODO - we need proper public path, storage and handling for static assets
   },
   module: {
     rules: [
@@ -47,6 +38,13 @@ module.exports = {
         use: {
           loader: 'babel-loader', options: babelConfig,
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
       },
     ],
   },
