@@ -19,8 +19,8 @@ commander
 commander
   .command('build')
   .description('builds for deploy')
-  .action(() => {
-    build()
+  .action((command) => {
+    build(command)
   })
 
 commander.parse(process.argv)

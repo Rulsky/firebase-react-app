@@ -1,9 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { HotModuleReplacementPlugin } = require('webpack')
-const { join } = require('path')
 
-const { FBS_CONF } = require('./constants')
+const { HOSTING_DIR, CLIENT_ENTRY } = require('./constants')
 const babelConfig = require('./babel.conf.wds')
 
 const template = `
@@ -22,12 +21,12 @@ const template = `
 module.exports = {
   mode: 'development',
   entry: [
-    './src/client/index.js',
+    CLIENT_ENTRY,
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
   ],
   output: {
     filename: 'bundle.js',
-    path: join(process.cwd(), FBS_CONF.hosting.public),
+    path: HOSTING_DIR,
     publicPath: '/', // TODO - we need proper public path, storage and handling for static assets
   },
   module: {

@@ -1,3 +1,9 @@
+## [0.13.0] - 20 Sep 2018
+### Added
+  - build command now actually works
+### Fixed
+  - fix incorrect devServer declaration and call
+
 ## [0.12.8] - 20 Sep 2018
 ### Fixed
   - fix typos in configs

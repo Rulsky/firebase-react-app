@@ -8,21 +8,24 @@ const { PORTS, FRA_CONFIG } = require('../config/constants')
 const wpConfig = require('../config/webpack.dev.config')
 const applyProxies = require('./applyProxies')
 
+const ds = () => {
+  const proxies = Object.assign({ '/api': `http://localhost:${PORTS.emulator}` }, FRA_CONFIG.proxy)
 
-const proxies = Object.assign({ '/api': `http://localhost:${PORTS.emulator}` }, FRA_CONFIG.proxy)
+  const app = express()
+  const compiler = webpack(wpConfig)
+  const { log } = console
 
-const app = express()
-const compiler = webpack(wpConfig)
-const { log } = console
+  app.use(wdm(compiler, {
+    writeToDisk: true,
+    logLevel: 'warn',
+  }))
+  app.use(whm(compiler))
+  applyProxies(app, httpProxyMiddleware, proxies)
 
-app.use(wdm(compiler, {
-  writeToDisk: true,
-  logLevel: 'warn',
-}))
-app.use(whm(compiler))
-applyProxies(app, httpProxyMiddleware, proxies)
+  // TODO add ssr middleware
+  // TODO remove html-webpack-plugin
 
-// TODO add ssr middleware
-// TODO remove html-webpack-plugin
+  app.listen(PORTS.devServer, () => log(`express WHM on http://localhost:${PORTS.devServer}`))
+}
 
-app.listen(PORTS.devServer, () => log(`express WHM on http://localhost:${PORTS.devServer}`))
+module.exports = ds

@@ -1,41 +1,9 @@
-const { join } = require('path')
 const { watch } = require('chokidar')
 
 const { log, error } = require('./logger')
-const transform = require('./transform')
 const unlink = require('./unlink')
-const handleDeps = require('./handleDeps')
-const { SRC_DIR } = require('../config/constants')
-
-const rootPackage = join(process.cwd(), 'package.json')
-const src = join(SRC_DIR, '**')
-const watchList = [rootPackage, src]
-const ignored = [
-  '**/__spec__/**',
-  '**/__specs__/**',
-  '**/__test__/**',
-  '**/__tests__/**',
-  '**/__mocks__/**',
-  '*.test.js',
-  '*.spec.js',
-]
-
-const handleFiles = (file, yarn) => {
-  if (file === rootPackage) {
-    return handleDeps(yarn)
-      .then((result) => {
-        if (result) {
-          log('Deps have been changed')
-        } else {
-          log('No new Deps')
-        }
-      })
-      .catch(err => error(`error while handling new dependencies:\n${err}\n`))
-  }
-  return transform(file)
-    .then(() => log(`File ${file} has been changed`))
-    .catch(err => error(`error while transforming:\n${err}\n`))
-}
+const handleFiles = require('./handleFiles')
+const { watchList, ignored, rootPackage } = require('../config/constants')
 
 const watcher = ({ yarn }) => new Promise((resolve, reject) => watch(watchList, { ignored })
   .on('change', file => handleFiles(file, yarn))

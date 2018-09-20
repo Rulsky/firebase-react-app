@@ -15,12 +15,25 @@ const HOSTING_DIR = join(process.cwd(), HOSTING_DIR_NAME)
 
 const SRC_DIR = join(process.cwd(), 'src')
 
-const CLIENT_ENTRY = join(SRC_DIR, 'client', 'index.jsx')
+const CLIENT_ENTRY = './src/client/index.js'
 
 const PORTS = {
   emulator: FRA_CONFIG.emulatorPort || 5000,
   devServer: FRA_CONFIG.devPort || 3000,
 }
+
+const ignored = [
+  '**/__spec__/**',
+  '**/__specs__/**',
+  '**/__test__/**',
+  '**/__tests__/**',
+  '**/__mocks__/**',
+  '*.test.js',
+  '*.spec.js',
+]
+const rootPackage = join(process.cwd(), 'package.json')
+const src = join(SRC_DIR, '**')
+const watchList = [rootPackage, src]
 
 module.exports = {
   FRA_CONFIG,
@@ -31,4 +44,7 @@ module.exports = {
   HOSTING_DIR,
   SRC_DIR,
   PORTS,
+  ignored,
+  rootPackage,
+  watchList,
 }
