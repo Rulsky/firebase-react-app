@@ -1,0 +1,30 @@
+{
+  "extends": ["airbnb-base", "plugin:node/recommended"],
+  "plugins": ["node"],
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "semi": [2, "never"],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true
+      }
+    ],
+    "no-unexpected-multiline": 2,
+    "no-underscore-dangle": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ]
+  }
+}
