@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "plugins": ["babel"],
+  "env": {
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "semi": [2, "never"],
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "no-unexpected-multiline": 2
+  }
+}
