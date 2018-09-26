@@ -6,7 +6,7 @@ At the moment only transpiles es6 code for cloud functions - no dev server.
 Out of the box it requires zero configuration, but you can tweak few things for your needs.
 
 ### How:
-Add field `fra` to your `package.json` or create file `.frarc.json` in root of your project.
+Add `fra` object to your `package.json` or create file `.frarc.json` in root of your project.
 
 Please note, that, at the moment the config from `package.json` will take precedence over `.frarc.json` and they won't be merged, so use one of them. If you feel that you need such functionality, please, open an issue with this feature request.
 
@@ -14,6 +14,7 @@ Please note, that, at the moment the config from `package.json` will take preced
 
 - [babel](#babel)
 - [proxy](#proxy)
+- [renderMiddleware](#renderMiddleware)
 
 #### babel:
 type: object
@@ -31,12 +32,37 @@ example:
 
 #### proxy:
 type: object
-If you need to proxy calls to API. [Read more here](https://webpack.js.org/configuration/dev-server/#devserver-proxy)
+Description: If you need to proxy calls to API. [Read more here](https://webpack.js.org/configuration/dev-server/#devserver-proxy)
 
 Example and default value:
 ````json
 "proxy": {
   "/api": "http://localhost:5000"
+}
+````
+
+#### renderMiddleware
+type: string
+Description: If you want to provide a custom SSR bahaviour to your DX, you need to implement an express middleware that will enhance `responce.locals` with `fra` object that should contain 4 properties with type of string:
+headContent, appMarkup, bottomContent, title
+All of them will be inserted into page template and served to your localhost.
+Minimal example
+````javascript
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+
+import App from '../components'
+
+export default (req, res, next) => {
+  const fra = {
+    headContent: '',
+    appMarkup: renderToString(<App />),
+    bottomContent: '',
+    title: '',
+  }
+  res.locals.fra = fra
+
+  next()
 }
 ````
 

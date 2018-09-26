@@ -31,6 +31,7 @@ describe('genterateFunctionsPackage', () => {
         '@babel/preset-react': '^7.0.0-beta.55',
       },
       dependencies: {
+        '@rulsky/fra': '..',
         'graphql-tools': 'latest',
         'firebase-admin': '^5.13.1',
         'firebase-functions': '^2.0.2',
@@ -53,6 +54,7 @@ describe('genterateFunctionsPackage', () => {
       },
       private: true,
       dependencies: {
+        '@rulsky/fra': '../..',
         'graphql-tools': 'latest',
         'firebase-admin': '^5.13.1',
         'firebase-functions': '^2.0.2',

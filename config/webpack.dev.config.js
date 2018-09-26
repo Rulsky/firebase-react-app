@@ -1,22 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { HotModuleReplacementPlugin } = require('webpack')
 
 const { HOSTING_DIR, CLIENT_ENTRY } = require('./constants')
 const babelConfig = require('./babel.conf.wds')
-
-const template = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WDS</title>
-</head>
-<body>
-  <div id="root"></div>
-</html>
-`
 
 module.exports = {
   mode: 'development',
@@ -48,7 +34,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ templateContent: template }),
     new HotModuleReplacementPlugin(),
   ],
 }

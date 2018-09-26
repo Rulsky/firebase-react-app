@@ -20,6 +20,7 @@ const template = {
 
 const rootPackageJson = join(process.cwd(), 'package.json')
 const functionsPackageJson = join(FUNCTIONS_DIR, 'package.json')
+
 const generateFunctionsPackage = () => readJson(rootPackageJson)
   .then(({ dependencies }) => {
     const content = Object.assign({}, template, {

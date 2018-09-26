@@ -43,4 +43,18 @@ describe('deepenRelativePath', () => {
     }
     expect(deepenRelativePath(actual)).toEqual(expected)
   })
+
+  it('rel path with no "file:"', () => {
+    const actual = {
+      localChild: './module3',
+      localParent: '..',
+      localGrandParent: '../../local1module',
+    }
+    const expected = {
+      localChild: '../module3',
+      localParent: '../..',
+      localGrandParent: '../../../local1module',
+    }
+    expect(deepenRelativePath(actual)).toEqual(expected)
+  })
 })

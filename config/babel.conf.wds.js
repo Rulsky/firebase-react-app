@@ -9,6 +9,7 @@ module.exports = Object.assign({}, basicConfig, {
   ],
   plugins: [
     ['babel-plugin-styled-components', {
+      ssr: true,
       displayName: true,
     }],
     ...basicConfig.plugins,
