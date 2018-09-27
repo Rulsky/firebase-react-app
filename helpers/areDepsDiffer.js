@@ -2,10 +2,10 @@ const { join } = require('path')
 
 const { FUNCTIONS_DIR_NAME } = require('../config/constants')
 
-/* eslint-disable import/no-dynamic-require, global-require */
 const filterFSDeps = obj => Object.keys(obj).filter((k) => {
   if (typeof obj[k] === 'string') {
-    return !obj[k].toLowerCase().includes('file:')
+    const criteria = new RegExp(/file|..\/|.\//, 'i')
+    return !obj[k].match(criteria)
   }
   return true
 })
@@ -17,6 +17,7 @@ const filterFSDeps = obj => Object.keys(obj).filter((k) => {
 
 const areDepsDiffer = () => {
   try {
+    /* eslint-disable import/no-dynamic-require, global-require */
     const rootPackage = require(join(process.cwd(), 'package.json'))
     const functionsPackage = require(join(process.cwd(), FUNCTIONS_DIR_NAME, 'package.json'))
 
