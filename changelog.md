@@ -1,3 +1,10 @@
+## [0.14.0] - 28 Sep 2018
+### Added
+  - dev Server with server-side rendering (SSR)
+  - option to point to a custom middleware which does the SSR 
+  - export function which provides an easy html template for SSR
+  - added an sub project to run manual tests against it 
+
 ## [0.13.0] - 20 Sep 2018
 ### Added
   - build command now actually works
