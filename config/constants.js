@@ -35,7 +35,9 @@ const rootPackage = join(process.cwd(), 'package.json')
 const src = join(SRC_DIR, '**')
 const watchList = [rootPackage, src]
 
-const RENDER_MIDDLEWARE_PATH = FRA_CONFIG.renderMiddleware || join(SRC_DIR, 'server', 'renderMiddleware.js')
+const RENDER_MIDDLEWARE_PATH = FRA_CONFIG.renderMiddleware
+  ? join(process.cwd(), FRA_CONFIG.renderMiddleware)
+  : join(SRC_DIR, 'server', 'renderMiddleware.js')
 
 module.exports = {
   FRA_CONFIG,
