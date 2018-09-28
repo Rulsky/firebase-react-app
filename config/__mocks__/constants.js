@@ -31,6 +31,8 @@ const PORTS = {
   devServer: 3000,
 }
 
+const RENDER_MIDDLEWARE_PATH = require.resolve('../../devServer/__mocks__/renderMiddleware.js')
+
 module.exports = {
   FRA_CONFIG,
   FBS_CONF,
@@ -40,4 +42,5 @@ module.exports = {
   HOSTING_DIR,
   SRC_DIR,
   PORTS,
+  RENDER_MIDDLEWARE_PATH,
 }

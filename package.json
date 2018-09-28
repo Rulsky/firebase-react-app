@@ -23,7 +23,7 @@
   "scripts": {
     "test": "jest --coverage",
     "test:w": "jest --watch",
-    "test:wc": "jest --watch --coverage",
+    "test:wc": "jest --no-cache --coverage --watchAll",
     "cleandeps": "rm -rf package-lock.json yarn.lock node_modules/ && npm i && npm link"
   },
   "keywords": [],
