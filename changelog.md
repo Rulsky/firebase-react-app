@@ -1,3 +1,7 @@
+## [0.15.0] - 30 Sep 2018
+### Added
+  - jest preprocessor `jestTransformer.js`
+
 ## [0.14.0] - 28 Sep 2018
 ### Added
   - dev Server with server-side rendering (SSR)
