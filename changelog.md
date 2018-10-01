@@ -1,4 +1,4 @@
-## [0.15.0] - 30 Sep 2018
+## [0.15.0] - 01 Oct 2018
 ### Added
   - jest preprocessor `jestTransformer.js`
 

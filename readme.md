@@ -1,14 +1,24 @@
-# WIP tool to make DX of react apps easier for firebase cloud functions users.
+# (WIP) tool to make DX of react apps easier for firebase cloud functions users.
 
-At the moment only transpiles es6 code for cloud functions - no dev server.
+At the moment this tool can:
+- To transpile es-next code into compatible one with firebase cloud functions.
+- Does server-side rendering (SSR) with hot module replacement (HMR) in development.
+- Does basic webpacking for hosting on firebase hosting.
+- Provides jest transformer to write tests with es-next syntax
+
+
 
 ## Configuring
-Out of the box it requires zero configuration, but you can tweak few things for your needs.
+Out of the box it requires zero configuration (jest is an exeption), but you can tweak few things for your needs.
+
+
 
 ### How:
 Add `fra` object to your `package.json` or create file `.frarc.json` in root of your project.
 
 Please note, that, at the moment the config from `package.json` will take precedence over `.frarc.json` and they won't be merged, so use one of them. If you feel that you need such functionality, please, open an issue with this feature request.
+
+
 
 ### Config options:
 
@@ -47,6 +57,7 @@ __Example and default value__:
 ````
 
 #### renderMiddleware
+
 __type__: string
 
 __default value__: "./src/server/renderMiddleware.js"
@@ -80,10 +91,33 @@ export default (req, res, next) => {
 ````
 
 
+
 ## CLI options
+
  -c, --clean - completly remove your `functions` dir and generate everything anew icluding `package-lock.json` and `node_modules` inside of it.
  --yarn - use yarn instead of npm to install deps
- 
+
+
+
+## Running tests with jest
+
+If you want to run tests with jest you need to specify a config option for transforming your sources into campatible format.
+
+In your jest config (i.e. `jest` property of your root `package.json` or separete file for jest config) do this:
+
+````json
+// in your package.json
+"jest": {
+  "transform": {
+    "\\.js$": "@rulsky/firebase-react-app/jestTransformer.js"
+  }
+}
+````
+
+more about jest configuration is here: [jest docs](https://jestjs.io/docs/en/configuration.html)
+
+
 
 ## Known problems
+
 - due to the nature of chokidar changing case of letters (between lower and upper) of filenames won't be reflected in filename changing of transpiled files until dev restart. Does not affect the build process. Cured by either renaming file with changing a number of symbols or simply restarting.

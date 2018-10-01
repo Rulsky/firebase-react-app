@@ -13,8 +13,8 @@
     "scripts",
     "helpers",
     "config",
-    "index.js",
     "devServer",
+    "index.js",
     "jestTransformer.js"
   ],
   "engines": {

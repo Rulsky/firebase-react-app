@@ -1,7 +1,7 @@
 import Btn from '../Btn'
 
 describe('Btn', () => {
-  it('must fail', () => {
+  it('must pass', () => {
     expect(1).toEqual(1)
   })
 })
