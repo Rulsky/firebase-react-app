@@ -1,6 +1,6 @@
 {
   "name": "@rulsky/firebase-react-app",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "a tool to convert es6 code into compatible code with firebase cloud functions",
   "repository": {
     "type": "git",
@@ -74,6 +74,10 @@
     "jest-cli": "^23.5.0"
   },
   "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/testSubject/"
+    ],
     "collectCoverageFrom": [
       "scripts/**",
       "devServer/**",
