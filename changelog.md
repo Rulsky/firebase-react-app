@@ -1,3 +1,7 @@
+## [0.15.1] - 02 Oct 2018
+### Fixed
+  - fixed broken behaviour of destination filename generation.
+
 ## [0.15.0] - 01 Oct 2018
 ### Added
   - jest preprocessor `jestTransformer.js`
