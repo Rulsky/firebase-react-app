@@ -182,18 +182,18 @@ describe('areDepsDiffer', () => {
         expect(areDepsDiffer()).toEqual(false)
       })
 
-      it('case when deps are different - should be return true', () => {
+      it('case when deps are different - should return true', () => {
         jest.mock(join(process.cwd(), 'package.json'), () => ({
           dependencies: {
             one: '^0.0.1',
-            two: '0.0.2',
+            two: '0.0.3',
             localDep: './someModule',
           },
         }))
         jest.mock(join(process.cwd(), 'functions', 'package.json'), () => ({
           dependencies: {
             one: '^0.0.1',
-            two: '1.0.2',
+            two: '1.5.2',
             localDep: '../someModule',
           },
         }),

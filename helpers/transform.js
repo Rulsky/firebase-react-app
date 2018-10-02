@@ -6,6 +6,6 @@ const transformFile = require('./transformFile')
 
 const transform = path => transformFile(path)
   .then(({ code }) => outputFile(destFilename(path), code))
-  .catch(err => error(err))
+  .catch(err => error(`transform error: ${err}`))
 
 module.exports = transform

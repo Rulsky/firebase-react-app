@@ -4,7 +4,7 @@ const { FUNCTIONS_DIR_NAME } = require('../config/constants')
 
 const filterFSDeps = obj => Object.keys(obj).filter((k) => {
   if (typeof obj[k] === 'string') {
-    const criteria = new RegExp(/file|..\/|.\//, 'i')
+    const criteria = new RegExp(/file|\.\.|\.\//, 'i')
     return !obj[k].match(criteria)
   }
   return true
@@ -27,7 +27,7 @@ const areDepsDiffer = () => {
       JSON.stringify(filteredFunctionsDeps) !== JSON.stringify(rootFunctionsDeps)
     )
   } catch (error) {
-    if (error.message.match(/(cannot find).*package.json/i)) {
+    if (error.message.match(/find.*package.json/i)) {
       return true
     }
     throw error
