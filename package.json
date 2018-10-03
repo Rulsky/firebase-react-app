@@ -74,6 +74,10 @@
     "jest-cli": "^23.5.0"
   },
   "jest": {
+    "watchPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/testSubject/"
+    ],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "<rootDir>/testSubject/"
