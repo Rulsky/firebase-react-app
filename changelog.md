@@ -1,3 +1,7 @@
+## [0.15.2] - 04 Oct 2018
+### Fixed
+  - fixed accidenatl removal of `SRC_DIR` from contants export.
+
 ## [0.15.1] - 02 Oct 2018
 ### Fixed
   - fixed broken behaviour of destination filename generation.
