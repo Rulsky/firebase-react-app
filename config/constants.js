@@ -46,6 +46,7 @@ module.exports = {
   FUNCTIONS_DIR_NAME,
   FUNCTIONS_DIR,
   HOSTING_DIR,
+  SRC_DIR,
   PORTS,
   RENDER_MIDDLEWARE_PATH,
   ignored,
