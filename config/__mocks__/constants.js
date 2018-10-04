@@ -33,6 +33,20 @@ const PORTS = {
 
 const RENDER_MIDDLEWARE_PATH = require.resolve('../../devServer/__mocks__/renderMiddleware.js')
 
+
+const ignored = [
+  '**/__spec__/**',
+  '**/__specs__/**',
+  '**/__test__/**',
+  '**/__tests__/**',
+  '**/__mocks__/**',
+  '*.test.js',
+  '*.spec.js',
+]
+const rootPackage = join(process.cwd(), 'package.json')
+const src = join(SRC_DIR, '**')
+const watchList = [rootPackage, src]
+
 module.exports = {
   FRA_CONFIG,
   FBS_CONF,
@@ -43,4 +57,7 @@ module.exports = {
   SRC_DIR,
   PORTS,
   RENDER_MIDDLEWARE_PATH,
+  ignored,
+  rootPackage,
+  watchList,
 }
