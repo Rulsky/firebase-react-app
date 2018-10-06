@@ -1,4 +1,4 @@
-## [0.16.0] - 06 Oct 2018
+## [0.16.1] - 06 Oct 2018
 ### Added
   - handling static files
 

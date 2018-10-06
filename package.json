@@ -1,6 +1,6 @@
 {
   "name": "@rulsky/firebase-react-app",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "description": "a tool to convert es6 code into compatible code with firebase cloud functions",
   "repository": {
     "type": "git",
@@ -22,9 +22,11 @@
     "npm": ">=5.2.0"
   },
   "scripts": {
+    "lint": "eslint 'config/**' 'devServer/**' 'helpers/**' 'scripts/**'",
     "test": "jest --coverage",
     "test:w": "jest --watch",
     "test:wc": "jest --no-cache --coverage --watch",
+    "check": "npm run lint && npm run test",
     "cleandeps": "rm -rf package-lock.json yarn.lock node_modules/ && npm i && npm link"
   },
   "keywords": [],
@@ -70,8 +72,15 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
+    "husky": "^1.1.1",
     "jest": "^23.5.0",
     "jest-cli": "^23.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run check"
+    }
   },
   "jest": {
     "watchPathIgnorePatterns": [
