@@ -1,3 +1,7 @@
+## [0.16.0] - 06 Oct 2018
+### Added
+  - handling static files
+
 ## [0.15.2] - 04 Oct 2018
 ### Fixed
   - fixed accidenatl removal of `SRC_DIR` from contants export.

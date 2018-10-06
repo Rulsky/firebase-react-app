@@ -25,15 +25,16 @@ Please note, that, at the moment the config from `package.json` will take preced
 - [babel](#babel)
 - [proxy](#proxy)
 - [renderMiddleware](#renderMiddleware)
+- [static](#static)
 
 #### babel:
-__type__: object
+__Type__: object
 
-__format__: 100% same format as .babelrc
+__Format__: 100% same format as .babelrc
 
 __Description__: a custom babel configuration
 
-__example__:
+__Example__:
 ````json
 "babel": {
   "presets": [
@@ -45,7 +46,7 @@ __example__:
 ````
 
 #### proxy:
-__type__: object
+__Type__: object
 
 __Description__: If you need to proxy calls to API. [Read more here](https://webpack.js.org/configuration/dev-server/#devserver-proxy)
 
@@ -58,9 +59,9 @@ __Example and default value__:
 
 #### renderMiddleware
 
-__type__: string
+__Type__: string
 
-__default value__: "./src/server/renderMiddleware.js"
+__Default value__: "./src/server/renderMiddleware.js"
 
 __Description__: If you want to provide a custom SSR bahaviour to your DX, you need to implement an express middleware that will enhance `responce.locals` with `fra` object that should contain 4 properties with type of string:
   - title: a page title.
@@ -89,6 +90,27 @@ export default (req, res, next) => {
   next()
 }
 ````
+
+
+#### static
+
+__type__: string
+
+__default value__: "static"
+
+__Description__: a directoty where static files (like fonts, images, etc.) are stored. From this directory files will be served during development and will be copied to your hosting directory. Files are served from root of your host.
+
+__Example__:
+````javascript
+/**
+ * Imagane that you have an image in your project with path `static/images/hero.jpg`
+ *
+ * Now you can consume this file in your code like this
+ */
+
+<img src="./images/hero.jpg" alt="description"/>
+````
+
 
 
 

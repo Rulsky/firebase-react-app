@@ -1,6 +1,6 @@
 {
   "name": "@rulsky/firebase-react-app",
-  "version": "0.15.2",
+  "version": "0.16.0",
   "description": "a tool to convert es6 code into compatible code with firebase cloud functions",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "scripts": {
     "test": "jest --coverage",
     "test:w": "jest --watch",
-    "test:wc": "jest --no-cache --coverage --watchAll",
+    "test:wc": "jest --no-cache --coverage --watch",
     "cleandeps": "rm -rf package-lock.json yarn.lock node_modules/ && npm i && npm link"
   },
   "keywords": [],

@@ -26,6 +26,8 @@ const FUNCTIONS_DIR = join(process.cwd(), FUNCTIONS_DIR_NAME)
 const SRC_DIR = join(process.cwd(), 'src')
 const CLIENT_ENTRY = join(SRC_DIR, 'client', 'index.jsx')
 
+const STATIC_DIR_NAME = 'static'
+
 const PORTS = {
   emulator: 5000,
   devServer: 3000,
@@ -45,7 +47,9 @@ const ignored = [
 ]
 const rootPackage = join(process.cwd(), 'package.json')
 const src = join(SRC_DIR, '**')
-const watchList = [rootPackage, src]
+const STATIC_DIR = join(process.cwd(), STATIC_DIR_NAME)
+const STATIC_DIR_PATTERN = join(STATIC_DIR, '**')
+const watchList = [rootPackage, src, STATIC_DIR_PATTERN]
 
 module.exports = {
   FRA_CONFIG,
@@ -55,6 +59,9 @@ module.exports = {
   FUNCTIONS_DIR,
   HOSTING_DIR,
   SRC_DIR,
+  STATIC_DIR_NAME,
+  STATIC_DIR,
+  STATIC_DIR_PATTERN,
   PORTS,
   RENDER_MIDDLEWARE_PATH,
   ignored,
