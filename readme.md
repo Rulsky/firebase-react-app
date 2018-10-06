@@ -6,19 +6,19 @@ At the moment this tool can:
 - Does basic webpacking for hosting on firebase hosting.
 - Provides jest transformer to write tests with es-next syntax
 
-
+---
 
 ## Configuring
 Out of the box it requires zero configuration (jest is an exeption), but you can tweak few things for your needs.
 
-
+---
 
 ### How:
 Add `fra` object to your `package.json` or create file `.frarc.json` in root of your project.
 
 Please note, that, at the moment the config from `package.json` will take precedence over `.frarc.json` and they won't be merged, so use one of them. If you feel that you need such functionality, please, open an issue with this feature request.
 
-
+---
 
 ### Config options:
 
@@ -26,6 +26,8 @@ Please note, that, at the moment the config from `package.json` will take preced
 - [proxy](#proxy)
 - [renderMiddleware](#renderMiddleware)
 - [static](#static)
+
+---
 
 #### babel:
 __Type__: object
@@ -45,6 +47,8 @@ __Example__:
 }
 ````
 
+---
+
 #### proxy:
 __Type__: object
 
@@ -56,6 +60,8 @@ __Example and default value__:
   "/api": "http://localhost:5000"
 }
 ````
+
+---
 
 #### renderMiddleware
 
@@ -91,6 +97,7 @@ export default (req, res, next) => {
 }
 ````
 
+---
 
 #### static
 
@@ -110,7 +117,7 @@ __Example__:
 
 <img src="./images/hero.jpg" alt="description"/>
 ````
-
+---
 
 
 
@@ -119,7 +126,7 @@ __Example__:
  -c, --clean - completly remove your `functions` dir and generate everything anew icluding `package-lock.json` and `node_modules` inside of it.
  --yarn - use yarn instead of npm to install deps
 
-
+---
 
 ## Running tests with jest
 
@@ -139,6 +146,7 @@ In your jest config (i.e. `jest` property of your root `package.json` or separet
 more about jest configuration is here: [jest docs](https://jestjs.io/docs/en/configuration.html)
 
 
+---
 
 ## Known problems
 
