@@ -1,3 +1,7 @@
+## [0.17.0] - 15 Oct 2018
+### Added
+  - removing hosting dir upon start
+
 ## [0.16.1] - 06 Oct 2018
 ### Added
   - handling static files
