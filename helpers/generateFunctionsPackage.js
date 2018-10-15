@@ -15,6 +15,10 @@ const template = {
     deploy: 'firebase deploy --only functions',
     logs: 'firebase functions:log',
   },
+  devDependencies: {
+    'source-map-support': '^0.5.9',
+    '@rulsky/firebase-react-app': 'latest',
+  },
   private: true,
 }
 

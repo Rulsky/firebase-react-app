@@ -1,3 +1,9 @@
+## [0.18.0] - 15 Oct 2018
+### Added
+  - functions nov get devDeps of source-map-support and this package in order to eleminate root deps pollution
+### Changed
+  - deps versions update
+
 ## [0.17.0] - 15 Oct 2018
 ### Added
   - removing hosting dir upon start
