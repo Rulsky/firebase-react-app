@@ -1,6 +1,6 @@
 ## [0.18.0] - 15 Oct 2018
 ### Added
-  - functions nov get devDeps of source-map-support and this package in order to eleminate root deps pollution
+  - functions now get devDeps of source-map-support and this package in order to eleminate root deps pollution
 ### Changed
   - deps versions update
 
