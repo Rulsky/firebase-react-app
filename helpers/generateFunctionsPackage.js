@@ -4,6 +4,8 @@ const { readJson, outputFile } = require('fs-extra')
 const { error } = require('./logger')
 const deepenRelativePath = require('./deepenRelativePath')
 const { FUNCTIONS_DIR } = require('../config/constants')
+const { version } = require('../package.json')
+
 
 const template = {
   name: 'functions',
@@ -15,10 +17,6 @@ const template = {
     deploy: 'firebase deploy --only functions',
     logs: 'firebase functions:log',
   },
-  devDependencies: {
-    'source-map-support': '^0.5.9',
-    '@rulsky/firebase-react-app': 'latest',
-  },
   private: true,
 }
 
@@ -28,7 +26,12 @@ const functionsPackageJson = join(FUNCTIONS_DIR, 'package.json')
 const generateFunctionsPackage = () => readJson(rootPackageJson)
   .then(({ dependencies }) => {
     const content = Object.assign({}, template, {
-      dependencies: deepenRelativePath(dependencies),
+      dependencies: Object.assign({},
+        {
+          'source-map-support': '^0.5.9',
+          '@rulsky/firebase-react-app': version,
+        },
+        deepenRelativePath(dependencies)),
     })
     return JSON.stringify(content, null, 2)
   })

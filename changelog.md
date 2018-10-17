@@ -1,3 +1,7 @@
+## [0.19.0] - 18 Oct 2018
+### Changed
+  - functions now get source-map-support and this package as dependencies in order to actually handle root deps pollution
+
 ## [0.18.0] - 15 Oct 2018
 ### Added
   - functions now get devDeps of source-map-support and this package in order to eleminate root deps pollution

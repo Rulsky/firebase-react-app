@@ -3,6 +3,7 @@ const { join } = require('path')
 /* eslint-disable global-require */
 describe('genterateFunctionsPackage', () => {
   const smsV = '^0.5.9'
+  const { version } = require('../../package.json')
   beforeEach(() => {
     jest.mock('fs-extra')
     jest.mock('../../config/constants')
@@ -53,12 +54,10 @@ describe('genterateFunctionsPackage', () => {
         deploy: 'firebase deploy --only functions',
         logs: 'firebase functions:log',
       },
-      devDependencies: {
-        'source-map-support': smsV,
-        '@rulsky/firebase-react-app': 'latest',
-      },
       private: true,
       dependencies: {
+        'source-map-support': smsV,
+        '@rulsky/firebase-react-app': version,
         '@rulsky/fra': '../..',
         'graphql-tools': 'latest',
         'firebase-admin': '^5.13.1',
