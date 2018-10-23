@@ -1,3 +1,4 @@
+const { resolve } = require('path')
 /* eslint-disable import/no-extraneous-dependencies */
 const { HotModuleReplacementPlugin } = require('webpack')
 
@@ -13,7 +14,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: HOSTING_DIR,
-    publicPath: '/', // TODO - we need proper public path, storage and handling for static assets
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -32,6 +33,12 @@ module.exports = {
         ],
       },
     ],
+  },
+  resolve: {
+    alias: {
+      react: resolve(__dirname, 'node_modules', 'react'),
+      styled: resolve(__dirname, 'node_modules', 'styled-components'),
+    },
   },
   plugins: [
     new HotModuleReplacementPlugin(),

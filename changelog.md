@@ -1,3 +1,8 @@
+## [0.20.0] - 23 Oct 2018
+### Changed
+  - an attempt to solve problem with build code duplication in dev
+  - disable writeToDisk option for dev
+
 ## [0.19.0] - 18 Oct 2018
 ### Changed
   - functions now get source-map-support and this package as dependencies in order to actually handle root deps pollution

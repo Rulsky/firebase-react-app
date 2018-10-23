@@ -26,7 +26,7 @@ const ds = () => {
 
   app.use(express.static(STATIC_DIR_NAME))
   app.use(wdm(compiler, {
-    writeToDisk: true,
+    // writeToDisk: true,
     logLevel: 'warn',
     serverSideRender: true,
   }))
