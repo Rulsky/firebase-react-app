@@ -1,3 +1,7 @@
+## [0.20.1] - 23 Oct 2018
+### Changed
+  - an attempt number 2 to solve problem with build code duplication in dev
+
 ## [0.20.0] - 23 Oct 2018
 ### Changed
   - an attempt to solve problem with build code duplication in dev

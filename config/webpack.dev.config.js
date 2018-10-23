@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+const { join } = require('path')
 /* eslint-disable import/no-extraneous-dependencies */
 const { HotModuleReplacementPlugin } = require('webpack')
 
@@ -36,8 +36,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      react: resolve(__dirname, 'node_modules', 'react'),
-      styled: resolve(__dirname, 'node_modules', 'styled-components'),
+      react: join(process.cwd(), 'node_modules', 'react'),
+      styled: join(process.cwd(), 'node_modules', 'styled-components'),
     },
   },
   plugins: [
