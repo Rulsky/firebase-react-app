@@ -1,3 +1,7 @@
+## [0.20.3] - 24 Oct 2018
+### Fixed
+  - webpack watch callback
+
 ## [0.20.2] - 24 Oct 2018
 ### Changed
   - an experimental tryout of building prod bundle in dev
