@@ -1,3 +1,9 @@
+## [0.20.2] - 24 Oct 2018
+### Changed
+  - an experimental tryout of building prod bundle in dev
+### Fixed
+  - false deps change trigger
+
 ## [0.20.1] - 23 Oct 2018
 ### Changed
   - an attempt number 2 to solve problem with build code duplication in dev

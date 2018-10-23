@@ -2,8 +2,10 @@ const { join } = require('path')
 
 /* eslint-disable global-require */
 describe('genterateFunctionsPackage', () => {
-  const smsV = '^0.5.9'
-  const { version } = require('../../package.json')
+  const fraPackage = require('../../package.json')
+  const { version } = fraPackage
+  const smsV = fraPackage.dependencies['source-map-support']
+
   beforeEach(() => {
     jest.mock('fs-extra')
     jest.mock('../../config/constants')

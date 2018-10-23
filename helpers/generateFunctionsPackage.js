@@ -4,8 +4,10 @@ const { readJson, outputFile } = require('fs-extra')
 const { error } = require('./logger')
 const deepenRelativePath = require('./deepenRelativePath')
 const { FUNCTIONS_DIR } = require('../config/constants')
-const { version } = require('../package.json')
+const fraPackage = require('../package.json')
 
+const { version } = fraPackage
+const SMSV = fraPackage.dependencies['source-map-support']
 
 const template = {
   name: 'functions',
@@ -28,7 +30,7 @@ const generateFunctionsPackage = () => readJson(rootPackageJson)
     const content = Object.assign({}, template, {
       dependencies: Object.assign({},
         {
-          'source-map-support': '^0.5.9',
+          'source-map-support': SMSV,
           '@rulsky/firebase-react-app': version,
         },
         deepenRelativePath(dependencies)),

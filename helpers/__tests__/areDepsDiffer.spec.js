@@ -114,6 +114,29 @@ describe('areDepsDiffer', () => {
     })
   })
 
+  describe('source-map-support and this package handling', () => {
+    it('should be return false', () => {
+      jest.mock(join(process.cwd(), 'package.json'), () => ({
+        dependencies: {
+          husky: '^1.1.2',
+          jest: '^23.5.0',
+        },
+      }))
+      jest.mock(join(process.cwd(), 'functions', 'package.json'), () => ({
+        dependencies: {
+          'source-map-support': '^0.59.0',
+          '@rulsky/firebase-react-app': '0.20.2',
+          husky: '^1.1.2',
+          jest: '^23.5.0',
+        },
+      }),
+      { virtual: true })
+
+      const areDepsDiffer = require('../areDepsDiffer')
+      expect(areDepsDiffer()).toEqual(false)
+    })
+  })
+
   describe('aware about dependencies from file system', () => {
     describe('path starts with "file:"', () => {
       it('case when all deps are same - should be return false', () => {
