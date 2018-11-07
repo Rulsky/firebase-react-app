@@ -1,3 +1,8 @@
+## [1.21.0] - 07 Nov 2018
+### Breaking changes
+  - added an option for multiple entry points which involves change of output bundle filename change.
+Now default output name is [name].bundle.js
+
 ## [0.20.3] - 24 Oct 2018
 ### Fixed
   - webpack watch callback

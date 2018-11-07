@@ -1,31 +1,12 @@
-const { HOSTING_DIR, CLIENT_ENTRY } = require('./constants')
-const babelConfig = require('./babel.conf.webpackProd.js')
+const makeEntry = require('../helpers/makeEntry')
+const { CLIENT_ENTRY } = require('./constants')
+const basicConfig = require('./webpack.basic.config')
 
-module.exports = {
+const prodConfig = {
   mode: 'production',
-  entry: [
-    CLIENT_ENTRY,
-  ],
-  output: {
-    filename: 'bundle.js',
-    path: HOSTING_DIR,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader', options: babelConfig,
-        },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
-      },
-    ],
-  },
+  entry: makeEntry(CLIENT_ENTRY),
 }
+
+const extended = Object.assign({}, basicConfig, prodConfig)
+
+module.exports = extended

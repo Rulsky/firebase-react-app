@@ -15,7 +15,7 @@ const HOSTING_DIR = join(process.cwd(), HOSTING_DIR_NAME)
 
 const SRC_DIR = join(process.cwd(), 'src')
 
-const CLIENT_ENTRY = './src/client/index.js'
+const CLIENT_ENTRY = FRA_CONFIG.clientEntry || './src/client/index.js'
 
 const STATIC_DIR_NAME = FRA_CONFIG.static || 'static'
 

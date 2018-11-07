@@ -1,46 +1,21 @@
-const { join } = require('path')
 /* eslint-disable import/no-extraneous-dependencies */
 const { HotModuleReplacementPlugin } = require('webpack')
 
-const { HOSTING_DIR, CLIENT_ENTRY } = require('./constants')
-const babelConfig = require('./babel.conf.wds')
+const makeEntry = require('../helpers/makeEntry')
+const { CLIENT_ENTRY } = require('./constants')
+const basicConfig = require('./webpack.basic.config')
 
-module.exports = {
+const whmEntry = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
+
+
+const devConfig = {
   mode: 'development',
-  entry: [
-    CLIENT_ENTRY,
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
-  ],
-  output: {
-    filename: 'bundle.js',
-    path: HOSTING_DIR,
-    publicPath: '/',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader', options: babelConfig,
-        },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
-      },
-    ],
-  },
-  resolve: {
-    alias: {
-      react: join(process.cwd(), 'node_modules', 'react'),
-      styled: join(process.cwd(), 'node_modules', 'styled-components'),
-    },
-  },
+  entry: makeEntry(CLIENT_ENTRY, whmEntry),
   plugins: [
     new HotModuleReplacementPlugin(),
   ],
 }
+
+const extended = Object.assign({}, basicConfig, devConfig)
+
+module.exports = extended

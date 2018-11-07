@@ -26,7 +26,7 @@ Please note, that, at the moment the config from `package.json` will take preced
 - [proxy](#proxy)
 - [renderMiddleware](#renderMiddleware)
 - [static](#static)
-
+- [clientEntry](#clientEntry)
 ---
 
 #### babel:
@@ -117,6 +117,24 @@ __Example__:
 
 <img src="./images/hero.jpg" alt="description"/>
 ````
+---
+
+#### clientEntry
+__type__: string | object | array
+
+__default value__: "./src/client/index.js"
+
+__Description__: an entry point for webpack bundling, syntax is the same as webpack's, see more in [webpack's docs](https://webpack.js.org/concepts/entry-points/)
+
+__Example__:
+````JSON
+"clientEntry": {
+  "client": "./src/client/index.js",
+  "otherPage": "./src/client/otherPage.js",
+  "admin": "./src/client/admin.js"
+}
+````
+
 ---
 
 
