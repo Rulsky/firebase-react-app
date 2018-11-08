@@ -7,11 +7,18 @@
   "scripts": {
     "start": "fra start",
     "build": "fra build",
+    "serve": "firebase serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "fra": {
+    "clientEntry": {
+      "client": "./src/client/index.js",
+      "cms": "./src/client/cms.js"
+    }
+  },
   "devDependencies": {
     "babel-eslint": "^10.0.0",
     "eslint": "^5.6.0",

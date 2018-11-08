@@ -43,6 +43,10 @@ const RENDER_MIDDLEWARE_PATH = FRA_CONFIG.renderMiddleware
   ? join(process.cwd(), FRA_CONFIG.renderMiddleware)
   : join(SRC_DIR, 'server', 'renderMiddleware.js')
 
+const TEMPLATE_PATH = FRA_CONFIG.renderMiddleware
+  ? join(process.cwd(), FRA_CONFIG.template)
+  : join(SRC_DIR, 'server', 'template.js')
+
 module.exports = {
   FRA_CONFIG,
   FBS_CONF,
@@ -56,6 +60,7 @@ module.exports = {
   STATIC_DIR_PATTERN,
   PORTS,
   RENDER_MIDDLEWARE_PATH,
+  TEMPLATE_PATH,
   ignored,
   rootPackage,
   watchList,

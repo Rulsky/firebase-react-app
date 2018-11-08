@@ -1,3 +1,12 @@
+## [2.22.1] - 08 Nov 2018
+### Breaking changes
+  - now its up to you to provide a script tag a into a bottom of your markup. If you have a single entry point than it shoul be `'<script type="text/javascript" src="./main.bundle.js"></script>'`
+### Added
+  - template option
+### Fixed
+  - handling multiple entry points
+  - hope it also will fix problem with code duplication in development
+
 ## [1.21.0] - 07 Nov 2018
 ### Breaking changes
   - added an option for multiple entry points which involves change of output bundle filename change.

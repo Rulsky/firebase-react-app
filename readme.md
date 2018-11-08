@@ -1,9 +1,10 @@
-# (WIP) tool to make DX of react apps easier for firebase cloud functions users.
+# A tool to make DX of react apps easier for firebase cloud functions users.
 
 At the moment this tool can:
 - To transpile es-next code into compatible one with firebase cloud functions.
 - Does server-side rendering (SSR) with hot module replacement (HMR) in development.
 - Does basic webpacking for hosting on firebase hosting.
+- Can take into account multiple entry points.
 - Provides jest transformer to write tests with es-next syntax
 
 ---
@@ -25,6 +26,7 @@ Please note, that, at the moment the config from `package.json` will take preced
 - [babel](#babel)
 - [proxy](#proxy)
 - [renderMiddleware](#renderMiddleware)
+- [template](#template)
 - [static](#static)
 - [clientEntry](#clientEntry)
 ---
@@ -77,7 +79,9 @@ __Description__: If you want to provide a custom SSR bahaviour to your DX, you n
   
 All of them will be inserted into page template and served to your localhost.
 
-Minimal example of the middleware:
+__You can also see an example of multi-entry middleware__ in [source files](testSubject/src/server/renderMiddleware.js)
+
+Minimal __example__ of the middleware:
 ````javascript
 import React from 'react'
 import { renderToString } from 'react-dom/server'
@@ -85,16 +89,57 @@ import { renderToString } from 'react-dom/server'
 import App from '../components'
 
 export default (req, res, next) => {
+  const bottomContent = `
+    <script type"text/javascript">window.MY_GLOBAL_VAR="anything"</script>
+    <script type="text/javascript" src="./main.bundle.js"></script>
+  `
   const fra = {
     headContent: '<meta name="author" value="John Doe"/>',
     appMarkup: renderToString(<App />),
-    bottomContent: '<script type"text/javascript">window.MY_GLOBAL_VAR="anything"</script>',
+    bottomContent,
     title: 'a title for my page',
   }
   res.locals.fra = fra
 
   next()
 }
+````
+---
+
+#### template
+
+__type__: string
+
+__default value__: "./src/server/template.js"
+
+__Description__: if you want to use your own template during development you can provide a string which points to a file with your template.
+It must be a function which returns a string with four arguments in this order: `headContent`, `rootContent`, `bottomContent`, `title`.
+
+You can also use an minimalistic template provided by this utility like this:
+`import template from '@rulsky/firebase-react-app/devServer/template'`
+
+__Example__:
+````javascript
+const template = (headContent, rootContent, bottomContent, title = 'FRA DevServer') => `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>${title}</title>
+  <!–– provide here a custom info about static files like icons, fonts and other stuff ––>
+  <!–– by the way, this template for development is completely optional ––>
+  ${headContent}
+</head>
+<body>
+  <div id="root">${rootContent}</div>\n
+  ${bottomContent}
+</body>
+</html>
+`
+export default template
+
 ````
 
 ---
@@ -138,13 +183,13 @@ __Example__:
 ---
 
 
-
 ## CLI options
 
  -c, --clean - completly remove your `functions` dir and generate everything anew icluding `package-lock.json` and `node_modules` inside of it.
  --yarn - use yarn instead of npm to install deps
 
 ---
+
 
 ## Running tests with jest
 

@@ -23,7 +23,7 @@ class App extends Component {
       <Fragment>
         <h1>my web app</h1>
         <p>hello there</p>
-        <Btn bgc={bgc} brdc={brdc} onClick={this.changeColors}>Click me to change my colors</Btn>
+        <Btn bgc={bgc} brdc={brdc} onClick={this.changeColors}>Click me to change my colors!!</Btn>
         <p>
           Photo by Finding Dan | Dan Grinwis on Unsplash
         </p>

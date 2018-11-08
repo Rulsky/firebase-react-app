@@ -8,6 +8,7 @@ const Btn = styled.button`
   margin: 1rem;
   padding: .5rem;
   transition: .35s ease-in-out;
+  outline: none;
 `
 
 export default Btn

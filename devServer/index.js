@@ -11,10 +11,10 @@ const {
 } = require('../config/constants')
 const wpConfig = require('../config/webpack.dev.config')
 const applyProxies = require('./applyProxies')
-const template = require('./template')
-const assetsToStrings = require('./assetsToStrings')
 const getRenderMiddleware = require('./getRenderMiddleware')
+const getTemplate = require('./getTemplate')
 
+const template = getTemplate()
 const renderMiddleware = getRenderMiddleware()
 
 const ds = () => {
@@ -26,7 +26,6 @@ const ds = () => {
 
   app.use(express.static(STATIC_DIR_NAME))
   app.use(wdm(compiler, {
-    // writeToDisk: true,
     logLevel: 'warn',
     serverSideRender: true,
   }))
@@ -34,9 +33,7 @@ const ds = () => {
   applyProxies(app, httpProxyMiddleware, proxies)
   app.use(renderMiddleware)
   app.use((req, res) => {
-    const { assetsByChunkName } = res.locals.webpackStats.toJson()
-
-    let scripts = assetsToStrings(assetsByChunkName)
+    let scripts
     let head
     let content
     let title = 'still in dev'
@@ -44,7 +41,7 @@ const ds = () => {
       title = res.locals.fra.title || title
       head = res.locals.fra.headContent || ''
       content = res.locals.fra.appMarkup || ''
-      scripts = `${res.locals.fra.bottomContent}\n${scripts}`
+      scripts = `${res.locals.fra.bottomContent}\n`
     }
     res.send(template(head, content, scripts, title))
   })

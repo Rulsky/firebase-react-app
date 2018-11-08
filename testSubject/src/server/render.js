@@ -8,11 +8,10 @@ export default (app, path = '/') => {
   app.use(path, (req, res) => {
     const {
       fra: {
-        headContent, appMarkup, bottomContent, title,
+        headContent, appMarkup, title, bottomContent,
       },
     } = res.locals
-    const bottom = `${bottomContent}\n<script type="text/javascript" src="bundle.js"><script/>`
-    const html = template(headContent, appMarkup, bottom, title)
+    const html = template(headContent, appMarkup, bottomContent, title)
     res.send(html)
   })
   return app

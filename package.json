@@ -1,6 +1,6 @@
 {
   "name": "@rulsky/firebase-react-app",
-  "version": "1.21.0",
+  "version": "2.22.1",
   "description": "a tool to convert es6 code into compatible code with firebase cloud functions",
   "repository": {
     "type": "git",
