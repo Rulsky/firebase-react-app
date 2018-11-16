@@ -1,3 +1,7 @@
+## [3.0.0] - 16 Nov 2018
+### Breaking changes
+  - due to new behaviour of firebase emulation `start` command now specificly serves only hosting and functions
+
 ## [2.22.1] - 08 Nov 2018
 ### Breaking changes
   - now its up to you to provide a script tag a into a bottom of your markup. If you have a single entry point than it shoul be `'<script type="text/javascript" src="./main.bundle.js"></script>'`
