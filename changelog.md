@@ -1,3 +1,7 @@
+## [3.0.1] - 16 Nov 2018
+### Fixed
+  - accidentally wrong arguments for serveFirebase command
+
 ## [3.0.0] - 16 Nov 2018
 ### Breaking changes
   - due to new behaviour of firebase emulation `start` command now specificly serves only hosting and functions

@@ -4,7 +4,7 @@ const { info } = require('./logger')
 
 const serveFirebase = () => {
   info('\nstarting firebase emulation\n')
-  return spawn('npx', ['firebase', 'serve', '--only hosting,functions'], { stdio: 'inherit' })
+  return spawn('npx', ['firebase', 'serve', '--only', 'hosting,functions'], { stdio: 'inherit' })
 }
 
 module.exports = serveFirebase
