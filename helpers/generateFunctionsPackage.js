@@ -26,8 +26,9 @@ const rootPackageJson = join(process.cwd(), 'package.json')
 const functionsPackageJson = join(FUNCTIONS_DIR, 'package.json')
 
 const generateFunctionsPackage = () => readJson(rootPackageJson)
-  .then(({ dependencies }) => {
+  .then(({ dependencies, engines }) => {
     const content = Object.assign({}, template, {
+      engines,
       dependencies: Object.assign({},
         {
           'source-map-support': SMSV,
