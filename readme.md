@@ -1,4 +1,7 @@
-# A tool to make DX of react apps easier for firebase cloud functions users.
+# ⚠️ This project is **DEPRECATED**.
+_there is no need for this package any more. Besides, doing SSR on cloud function is not a good idea._
+
+## A tool to make DX of react apps easier for firebase cloud functions users.
 
 At the moment this tool can:
 - To transpile es-next code into compatible one with firebase cloud functions.
